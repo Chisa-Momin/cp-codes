@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-int toGuess=14;
+
+int toGuess=27;
+
 bool testing=1;
 //simple interactive problem 
 //+with custom interactor
@@ -8,7 +10,7 @@ bool testing=1;
 char interactor(int mid){
   if(mid>toGuess)return '>';
   else if(mid<toGuess)return '<';
-  return '=';
+  else return '=';
 }
 char ask(int mid){
   cout<<"? "<<mid<<endl;
@@ -16,9 +18,6 @@ char ask(int mid){
     cout<<interactor(mid)<<endl;
   return interactor(mid);
   }
-  else{
-  char c;cin>>c;return c;
-}
 }
 
    int main(){
