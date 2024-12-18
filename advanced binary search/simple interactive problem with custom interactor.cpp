@@ -1,16 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
-//simple interactive problem;
+int toGuess=14;
+bool testing=1;
+//simple interactive problem 
+//+with custom interactor
 
-char ask(int x){
-  cout<<"? "<<x<<endl;
-  char c;
-  cin>>c;
-  return c;
+char interactor(int mid){
+  if(mid>toGuess)return '>';
+  else if(mid<toGuess)return '<';
+  return '=';
+}
+char ask(int mid){
+  cout<<"? "<<mid<<endl;
+  if(testing){
+    cout<<interactor(mid)<<endl;
+  return interactor(mid);
+  }
+  else{
+  char c;cin>>c;return c;
+}
 }
 
    int main(){
-     int low=1,high=5,ans=-1;
+     int toGuess;
+    cin>>toGuess;
+     int low=1,high=50,ans=-1;
      while(low<=high){
      int mid=(low+high)/2;
          char store=ask(mid);
