@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+   int t;cin>>t;
+   while(t--){
+     int n,x,y;cin>>n>>x>>y;
+     /*
+     //this code is also correct but tle
+     for(int i=1;i<=n;i++){
+       int total=1;
+       int minimum=min(x,y);
+       total=i*minimum;
+       if(total>=n){
+         cout<<i<<endl;
+         break;
+       }
+     }*/int minimum=min(x,y);
+     if((n%minimum)==0){
+       cout<<n/minimum<<endl;
+     }
+     else{
+       cout<<(n/minimum)+1<<endl;
+     }
+   }
+}
