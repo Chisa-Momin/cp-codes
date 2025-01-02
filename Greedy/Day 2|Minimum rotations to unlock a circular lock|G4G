@@ -1,0 +1,61 @@
+//{ Driver Code Starts
+// Initial Template for C++
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+// User function Template for C++
+
+class Solution{
+public:
+    int rotationCount(long long R, long long D)
+    {
+        vector <int> arr_R,arr_D;
+        int Div=0,Rem=0;
+        while(R){
+            Rem=R%10;
+            arr_R.push_back(Rem);
+            R/=10;
+        }
+        Div=0,Rem=0;
+        while(D){
+            Rem=D%10;
+            arr_D.push_back(Rem);
+            D/=10;
+        }
+        
+        int size=arr_D.size();
+        int i=0,high=0,low,ans=0,maximum=0,minimum=0;
+        while(size--){/*
+            high=abs(arr_R[i]-arr_D[i]);
+            low=abs(10-high);
+            ans+=min(high,low);*/
+            maximum=max(arr_R[i],arr_D[i]);
+            minimum=min(arr_R[i],arr_D[i]);
+            high=abs(maximum-minimum);
+            low=abs(10-high);
+            ans+=min(low,high);
+            i++;
+        }
+        return ans;
+    }
+};
+
+//{ Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long R, D;
+        cin>>R>>D;
+        
+        Solution ob;
+        cout<<ob.rotationCount(R, D)<<"\n";
+    
+cout << "~" << "\n";
+}
+    return 0;
+}
+// } Driver Code Ends
