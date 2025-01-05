@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+  //sorting is necessary for using upper and lower bound just like in binary ,it's time complexity being log n;
+  //lower bound and upper bound in vectors//for lb and ub in arrays we use pointers,whereas in vectors we use iterators;
+  
+  vector <int> arr={5,4,1,2,8};
+  int n=arr.size();
+  sort(begin(arr),end(arr));
+  for(int i:arr)cout<<i<<" ";
+  cout<<endl;
+  auto it=upper_bound(arr.end()-3,arr.end(),5);
+  if(it==arr.end()){
+    cout<<"NOt accessible";return 0;
+  }
+  cout<<*it<<endl;
+  
+}
+  
+  /*in arrays based;
+  int a[]={5,4,3};
+  int n=sizeof(a)/sizeof(int);
+  sort(a,a+n);
+  int *ptr=lower_bound(a,a+n,1000);
+  if(ptr==a+n){
+    cout<<"Garbage Value";
+    return 0;
+  }
+  cout<<*ptr<<endl;
+}
+*/
