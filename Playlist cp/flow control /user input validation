@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+  //user input validation using do while loop
+  int n;
+  do{
+    cout<<"enter the postive number:"<<endl;
+    cin>>n;
+  }while(n<=0);
+  cout<<n;
+}
