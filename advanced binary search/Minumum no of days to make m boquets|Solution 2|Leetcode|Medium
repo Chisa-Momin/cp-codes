@@ -1,0 +1,43 @@
+using ll=long long;
+class Solution {
+public:
+
+ int bouquet_count(vector <int> &bloomDay,int mid,int k){
+    int adjacent_count=0,bouq_count=0;
+   for(int i=0;i<bloomDay.size();i++){
+    if(bloomDay[i]<=mid){
+adjacent_count++;
+    }
+    else{
+        adjacent_count=0;
+    }
+    if(adjacent_count==k){
+        bouq_count++;
+        adjacent_count=0;
+    }
+   }
+   return bouq_count;
+  }
+
+
+    int minDays(vector<int>& bloomDay, int m, int k) {
+        ll left=*min_element(bloomDay.begin(),bloomDay.end());
+        ll right=*max_element(bloomDay.begin(),bloomDay.end());
+        ll ans=-1;
+        while(left<=right){
+            ll mid=left+(right-left)/2;
+            if(bouquet_count(bloomDay,mid,k)>=m){
+               ans=mid;
+               right=mid-1;
+            }
+            else{
+               left=mid+1;
+            }
+
+        }
+        return ans;
+    }
+};
+  
+
+ 
