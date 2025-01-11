@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    //binary searching on decimal practice;
+    double x;
+    cin>>x;
+    double precision=1e-6;
+    double low=0,high=x,ans=-1;
+    while(high-low>precision){
+      double mid=(low+high)/2;
+      if(mid*mid<=x){
+        ans=max(ans,mid);
+        low=mid+precision;
+      }
+      else{
+        high=mid-precision;
+      }
+    }
+    cout<<setprecision(6)<<fixed<<ans<<endl;
+}
