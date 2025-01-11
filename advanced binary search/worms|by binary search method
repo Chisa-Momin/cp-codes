@@ -1,0 +1,34 @@
+//can also perform by brute force way as the constraints are not that large
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    //prefix sum applying  to the worms problem
+    int n;cin>>n;
+    vector <int> piles(n);
+    for(int &i:piles)cin>>i;
+    for(int i=1;i<n;i++){//prefix sum
+      piles[i]=piles[i-1]+piles[i];
+    }
+   int m;
+   cin>>m;
+   int ans=-1;
+   vector <int> labels(m);
+   for(int &i:labels)cin>>i;
+   for(int i=0;i<m;i++){
+ int low=0,high=n-1;
+     while(low<=high){
+       int mid=(low+high)/2;
+       if(piles[mid]<labels[i]){
+         low=mid+1;
+       }
+       else{
+         ans=mid;
+         high=mid-1;
+       }
+   }
+   cout<<ans+1<<endl;
+   }
+    
+}
