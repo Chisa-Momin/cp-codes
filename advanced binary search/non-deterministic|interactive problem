@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int ask(int x){
+  cout<<"?"<<x<<endl;
+  int res;cin>>res;return res;
+  
+}
+int main() 
+{
+   //finding frequency using interactive problem solving
+   ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+   
+   //random number generator probably uniform distribution
+   random_device rd;
+   mt19937 gen(rd());
+   int min=1,max=1e9;
+   uniform_int_distribution<> distrib(min,max);
+   for(int i=1;i<100;i++){
+   int randomIndex=distrib(gen);
+   int result=ask(randomIndex);
+   if(result==1){
+     cout<<"!"<<randomIndex<<endl;
+     break;
+   }
+   }
+   
+}
